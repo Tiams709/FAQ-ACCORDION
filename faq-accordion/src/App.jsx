@@ -1,7 +1,7 @@
 import starIcon from "./assets/images/icon-star.svg";
 import plusIcon from "./assets/images/icon-plus.svg";
 import minusIcon from "./assets/images/icon-minus.svg"
-
+import { useState } from "react";
 
 export default function App() {
     const [currentIndex, setCurrentIndex] = useState(null)
@@ -47,11 +47,23 @@ export default function App() {
         <div className="card__list">
           {faqs.map((faq, index) => (
             <div className="card__item" key={index}>
-              <div className="card__question">
+              <div
+                className="card__question"
+                onClick={() => handleClick(index)}
+              >
                 <span>{faq.question}</span>
-                <img src={plusIcon} alt="Expand icon" />
+                <img
+                  src={currentIndex === index ? minusIcon : plusIcon}
+                  alt="Expand icon"
+                />
               </div>
-              <p className="card__answer">{faq.answer}</p>
+              <p
+                className={`card__answer ${
+                  currentIndex === index ? "show" : ""
+                }`}
+              >
+                {faq.answer}
+              </p>
             </div>
           ))}
         </div>
