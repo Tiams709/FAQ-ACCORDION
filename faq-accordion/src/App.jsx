@@ -4,7 +4,7 @@ import minusIcon from "./assets/images/icon-minus.svg"
 import { useState } from "react";
 
 export default function App() {
-    const [currentIndex, setCurrentIndex] = useState(null)
+    const [currentIndex, setCurrentIndex] = useState(0)
 
   const faqs = [
     {
@@ -29,7 +29,7 @@ export default function App() {
         "The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members.",
     },
   ];
-  function handleClik(index) {
+  function handleClick(index) {
     if (currentIndex == 0) {
       setCurrentIndex(null);
       return;
